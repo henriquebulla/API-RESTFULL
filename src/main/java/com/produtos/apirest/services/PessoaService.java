@@ -3,6 +3,7 @@ package com.produtos.apirest.services;
 import java.util.List;
 import java.util.Optional;
 
+import com.produtos.apirest.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +24,9 @@ public class PessoaService {
 	public Pessoa findById(Long id) { //retorna pessoa por ID
 		Optional<Pessoa> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
+	}
+
+	public Pessoa Insert(Pessoa obj) {
+		return repository.save(obj);
 	}
 }
